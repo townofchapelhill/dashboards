@@ -1,4 +1,6 @@
-Town of
+Dashboards Project for Open Data (http://www.chapelhillopendata.org)
+
+------------
 <pre>
  _____ _                      _   _   _ _ _ _ 
 /  __ \ |                    | | | | | (_) | |
