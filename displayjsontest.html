@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script type="text/javascript" src="jquery-3.1.1.js"></script>
+  </head>
+  
+  <body>
+    
+    <script>
+      $.getJSON("test.json", function(data){
+        var items = [];
+        $.each(data, function(key,val){
+          items.push("<li id='" + key + "'>" + val + "</li>");
+        });
+        
+        $("<ul/>", {
+          "class": "test-list",
+          html: items.join("")
+        }).appendTo("body");
+      });
+    </script>
+
+  </body>
+  
+</html>
