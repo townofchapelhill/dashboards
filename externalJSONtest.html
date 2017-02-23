@@ -14,7 +14,7 @@
     under the Technology Solutions Department and the Computer 
     Replacement Fund-->
     <script>
-                $.getJSON("https://www.chapelhillopendata.org/api/records/1.0/search/?dataset=budget-and-actuals-fy17&rows=500", function(budget) {
+                $.getJSON("budget17.json", function(budget) {
 					$('#stage').html("");
 					for (var i = 0; i < budget.records.length; i++) {
 						b = budget.records[i];
