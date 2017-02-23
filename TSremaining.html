@@ -14,11 +14,11 @@
     under the Technology Solutions Department and the Computer 
     Replacement Fund-->
     <script>
-                $.getJSON("https://www.chapelhillopendata.org/api/records/1.0/search/?dataset=budget-and-actuals-fy17&rows=500", function(budget) {
+                $.getJSON("./data/budget17.json", function(budget) {
 					$('#stage').html("");
 					for (var i = 0; i < budget.records.length; i++) {
 						b = budget.records[i];
-						if(b.fields.department == "TECHNOLOGY SOLUTIONS" && b.fields.account_type == "EXPENSE"){
+						if(b.fields.department == "TECHNOLOGY SOLUTIONS" && b.fields.fund == "COMPUTER REPLACEMENT FUND" && b.fields.account_type == "EXPENSE"){
     						$('#stage').append('<p> Department: ' + b.fields.department + '</p>');
     						$('#stage').append('<p>Fiscal Year 2017 YTD Actual: ' + b.fields.fy17_ytd_actual+ '</p>');
     						$('#stage').append('<p> Fiscal Year 2017 Original Budget: ' + b.fields.fy17_original_budget+ '</p>');
@@ -38,6 +38,5 @@
 					}
                });
     </script>
-    <br>
 </body>
 </html>
