@@ -44,17 +44,19 @@
                 }
             }
             var revisedBudgetTotal = 0;
-			var actualTotal = 0;
-			for(var j = 0; j < budget.records.length; j++) {
-			    var a = budget.records[j];
-			    if(a.fields.department == "TECHNOLOGY SOLUTIONS" && a.fields.account_type == "EXPENSE"){
-			        revisedBudgetTotal += a.fields.fy17_revised_budget;
-			        actualTotal += a.fields.fy17_ytd_actual;
-			    }
-			}
-			$('#stage').append('<p> Sum of all Revised Budgets under Technology Solutions Department and Expense Type: '+ revisedBudgetTotal + '</p>');
-			$('#stage').append('<p> Sum of all Actual Budgets under Technology Solutions Department and Expense Type: ' + actualTotal + '</p>');
-       		$('#stage').append('<p> Sum all Revised Budgets - Sum of all actual budgets: ' + (revisedBudgetTotal - actualTotal) + '</p>');
+	    var actualTotal = 0;
+	    //adds up the sum of all revised budgets and actual budgets under Tech. Solutions department and type Expense
+	    for(var j = 0; j < budget.records.length; j++) {
+	    	var a = budget.records[j];
+		if(a.fields.department == "TECHNOLOGY SOLUTIONS" && a.fields.account_type == "EXPENSE"){
+			revisedBudgetTotal += a.fields.fy17_revised_budget;
+			actualTotal += a.fields.fy17_ytd_actual;
+		}
+	    }
+	    //displays the sums and revised budget total - actual budget total
+	    $('#stage').append('<p> Sum of all Revised Budgets under Technology Solutions Department and Expense Type: '+ revisedBudgetTotal + '</p>');
+	    $('#stage').append('<p> Sum of all Actual Budgets under Technology Solutions Department and Expense Type: ' + actualTotal + '</p>');
+       	    $('#stage').append('<p> Sum all Revised Budgets - Sum of all actual budgets: ' + (revisedBudgetTotal - actualTotal) + '</p>');
         });
     </script>
 </body>
