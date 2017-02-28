@@ -17,7 +17,7 @@
                 $.getJSON("budget17.json", function(budget) {
 					$('#stage').html("");
 					for (var i = 0; i < budget.records.length; i++) {
-						b = budget.records[i];
+						var b = budget.records[i];
 						if(b.fields.department == "TECHNOLOGY SOLUTIONS" && b.fields.fund == "COMPUTER REPLACEMENT FUND" && b.fields.account_type == "EXPENSE"){
     						$('#stage').append('<p> Department: ' + b.fields.department + '</p>');
     						$('#stage').append('<p>Fiscal Year 2017 YTD Actual: ' + b.fields.fy17_ytd_actual+ '</p>');
@@ -33,10 +33,22 @@
     					    $('#stage').append('<p> Actual budget divided by 15: ' + (b.fields.fy17_ytd_actual / 15) + '</p>');
     						//type of fund
     						$('#stage').append('<p> Fund: ' + b.fields.fund+ '</p>');
-    						$("#stage").append("<br><br>");
+    						$('#stage').append('<br><br>');
 						}
 					}
-               });
+					var revisedBudgetTotal = 0;
+					var actualTotal = 0;
+					for(var j = 0; j < budget.records.length; j++) {
+					    var a = budget.records[j];
+					    if(a.fields.department == "TECHNOLOGY SOLUTIONS" && a.fields.account_type == "EXPENSE"){
+					        revisedBudgetTotal += a.fields.fy17_revised_budget;
+					        actualTotal += a.fields.fy17_ytd_actual;
+					    }
+					}
+					$('#stage').append('<p> Sum of all Revised Budgets under Technology Solutions Department and Expense Type: '+ revisedBudgetTotal + '</p>');
+					$('#stage').append('<p> Sum of all Actual Budgets under Technology Solutions Department and Expense Type: ' + actualTotal + '</p>');
+               		$('#stage').append('<p> Sum all Revised Budgets - Sum of all actual budgets: ' + (revisedBudgetTotal - actualTotal) + '</p>');
+                });
     </script>
 </body>
 </html>
