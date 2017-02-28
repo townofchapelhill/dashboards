@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Budget and Actuals: Technology Solutions</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.6.0/d3.min.js" integrity="sha256-Drvapw32jygRZ7zLNXkZojUELkZC0CfXZ9DW3z6ipX4=" crossorigin="anonymous"></script>
+
+    <!-- to debug, uncomment these: -->
+    <!--<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.js"></script>-->
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.6.0/d3.js" integrity="sha256-LUVOgGhIkoAo3iUAl3VTfgDZfLCOX/+3mfwloxc8i4g=" crossorigin="anonymous"></script>-->
+</head>
+<body>
+    <h2>Budget and Actuals: Technology Solutions Department</h2>
+    <br>
+    <div id="stage">Filter by Tech. Solutions</div>
+    <!-- This script loops through the budget17 JSON file and
+    displays fiscal year actual, fiscal year original budget,
+    and fiscal year revised budget information for any data
+    under the Technology Solutions Department and the Computer
+    Replacement Fund-->
+    <script>
+        $.getJSON("https://www.chapelhillopendata.org/api/records/1.0/search/?dataset=budget-and-actuals-fy17&rows=500", function (budget) {
+            $('#stage').html("");
+            for (var i = 0; i < budget.records.length; i++) {
+                b = budget.records[i];
+                if (b.fields.department == "TECHNOLOGY SOLUTIONS" && b.fields.account_type == "EXPENSE") {
+                    $('#stage').append('<p> Department: ' + b.fields.department + '</p>');
+                    $('#stage').append('<p>Fiscal Year 2017 YTD Actual: ' + b.fields.fy17_ytd_actual + '</p>');
+                    $('#stage').append('<p> Fiscal Year 2017 Original Budget: ' + b.fields.fy17_original_budget + '</p>');
+                    $('#stage').append('<p> Fiscal Year 2017 Revised Budget: ' + b.fields.fy17_revised_budget + '</p>');
+                    //subtracting actual from revised budget
+                    $('#stage').append('<p> Fiscal Year 2017 Remaining: ' + (b.fields.fy17_revised_budget - b.fields.fy17_ytd_actual) + '</p')
+                    //adding together the original and revised budget
+                    $('#stage').append('<p> Original and Revised Budget total: ' + (b.fields.fy17_original_budget + b.fields.fy17_revised_budget) + '</p>');
+                    //multiplication of actual by 12
+                    $('#stage').append('<p> Actual budget times 15: ' + (b.fields.fy17_ytd_actual * 15) + '</p>');
+                    //division of actual by 12
+                    $('#stage').append('<p> Actual budget divided by 15: ' + (b.fields.fy17_ytd_actual / 15) + '</p>');
+                    //type of fund
+                    $('#stage').append('<p> Fund: ' + b.fields.fund + '</p>');
+                    $("#stage").append("<br><br>");
+                }
+            }
+        });
+    </script>
+    <br>
+</body>
+</html>

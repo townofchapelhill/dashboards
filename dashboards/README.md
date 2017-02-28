@@ -12,5 +12,3 @@ Dashboards Project for Open Data (http://www.chapelhillopendata.org)
                   |_|                         
 </pre>
 Test Dashboard for FY17 Budget and Actuals
-
-test modification with git by Steven
