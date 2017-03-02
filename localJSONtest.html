@@ -14,33 +14,36 @@
 <body>
     <h2>Budget and Actuals: Technology Solutions Department</h2>
     <br>
-    <div id="stage">Filter by Tech. Solutions</div>
+    <div id="budget17stage">Filter by Tech. Solutions</div>
+    <div id="budget16stage">other filter</div>
     <!-- This script loops through the budget17 JSON file and
     displays fiscal year actual, fiscal year original budget,
     and fiscal year revised budget information for any data
     under the Technology Solutions Department and the Computer
     Replacement Fund-->
     <script>
+        //get budget17 json file
         $.getJSON("./data/budget17.json", function (budget) {
-            $('#stage').html("");
+            $('#budget17stage').html("");
+            $('#budget17stage').append('<h3> 2017 Budget and Actuals </h3>');
             for (var i = 0; i < budget.records.length; i++) {
-                b = budget.records[i];
+                var b = budget.records[i];
                 if (b.fields.department == "TECHNOLOGY SOLUTIONS" && b.fields.fund == "COMPUTER REPLACEMENT FUND" && b.fields.account_type == "EXPENSE") {
-                    $('#stage').append('<p> Department: ' + b.fields.department + '</p>');
-                    $('#stage').append('<p>Fiscal Year 2017 YTD Actual: ' + b.fields.fy17_ytd_actual + '</p>');
-                    $('#stage').append('<p> Fiscal Year 2017 Original Budget: ' + b.fields.fy17_original_budget + '</p>');
-                    $('#stage').append('<p> Fiscal Year 2017 Revised Budget: ' + b.fields.fy17_revised_budget + '</p>');
+                    $('#budget17stage').append('<p> Department: ' + b.fields.department + '</p>');
+                    $('#budget17stage').append('<p>Fiscal Year 2017 YTD Actual: ' + b.fields.fy17_ytd_actual + '</p>');
+                    $('#budget17stage').append('<p> Fiscal Year 2017 Original Budget: ' + b.fields.fy17_original_budget + '</p>');
+                    $('#budget17stage').append('<p> Fiscal Year 2017 Revised Budget: ' + b.fields.fy17_revised_budget + '</p>');
                     //subtracting actual from revised budget
-                    $('#stage').append('<p> Fiscal Year 2017 Remaining: ' + (b.fields.fy17_revised_budget - b.fields.fy17_ytd_actual) + '</p')
+                    $('#budget17stage').append('<p> Fiscal Year 2017 Remaining: ' + (b.fields.fy17_revised_budget - b.fields.fy17_ytd_actual) + '</p')
                     //adding together the original and revised budget
-                    $('#stage').append('<p> Original and Revised Budget total: ' + (b.fields.fy17_original_budget + b.fields.fy17_revised_budget) + '</p>');
+                    $('#budget17stage').append('<p> Original and Revised Budget total: ' + (b.fields.fy17_original_budget + b.fields.fy17_revised_budget) + '</p>');
                     //multiplication of actual by 12
-                    $('#stage').append('<p> Actual budget times 15: ' + (b.fields.fy17_ytd_actual * 15) + '</p>');
+                    $('#budget17stage').append('<p> Actual budget times 15: ' + (b.fields.fy17_ytd_actual * 15) + '</p>');
                     //division of actual by 12
-                    $('#stage').append('<p> Actual budget divided by 15: ' + (b.fields.fy17_ytd_actual / 15) + '</p>');
+                    $('#budget17stage').append('<p> Actual budget divided by 15: ' + (b.fields.fy17_ytd_actual / 15) + '</p>');
                     //type of fund
-                    $('#stage').append('<p> Fund: ' + b.fields.fund + '</p>');
-                    $("#stage").append("<br><br>");
+                    $('#budget17stage').append('<p> Fund: ' + b.fields.fund + '</p>');
+                    $("#budget17stage").append("<br><br>");
                 }
             }
             var revisedBudgetTotal = 0;
@@ -53,11 +56,56 @@
 			        actualTotal += a.fields.fy17_ytd_actual;
 			    }
 			}
-			//displays the sums and revised budget sum - acutal sum
-			$('#stage').append('<p> Sum of all Revised Budgets under Technology Solutions Department and Expense Type: '+ revisedBudgetTotal + '</p>');
-			$('#stage').append('<p> Sum of all Actual Budgets under Technology Solutions Department and Expense Type: ' + actualTotal + '</p>');
-       		$('#stage').append('<p> Sum all Revised Budgets - Sum of all actual budgets: ' + (revisedBudgetTotal - actualTotal) + '</p>');
+			//displays the sums and revised budget sum - actual sum
+			$('#budget17stage').append('<p> Sum of all Revised Budgets under Technology Solutions Department and Expense Type: '+ revisedBudgetTotal + '</p>');
+			$('#budget17stage').append('<p> Sum of all Actual Budgets under Technology Solutions Department and Expense Type: ' + actualTotal + '</p>');
+       		$('#budget17stage').append('<p> Sum all Revised Budgets - Sum of all actual budgets: ' + (revisedBudgetTotal - actualTotal) + '</p>');
+            $("#budget17stage").append("<br><br>");
+            
+            
         });
+        //get budget16 json file
+        $.getJSON("./data/budget16.json", function (budget) {
+            $('#budget16stage').html("");
+            $('#budget16stage').append('<h3> 2016 Budget and Actuals </h3>');
+            for (var i = 0; i < budget.records.length; i++) {
+                var b = budget.records[i];
+                if (b.fields.department == "TECHNOLOGY SOLUTIONS" && b.fields.fund == "COMPUTER REPLACEMENT FUND" && b.fields.account_type == "EXPENSE") {
+                    $('#budget16stage').append('<p> Department: ' + b.fields.department + '</p>');
+                    $('#budget16stage').append('<p>Fiscal Year 2016 YTD Actual: ' + b.fields.fy16_ytd_actual + '</p>');
+                    $('#budget16stage').append('<p> Fiscal Year 2016 Original Budget: ' + b.fields.fy16_original_budget + '</p>');
+                    $('#budget16stage').append('<p> Fiscal Year 2016 Revised Budget: ' + b.fields.fy16_revised_budget + '</p>');
+                    //subtracting actual from revised budget
+                    $('#budget16stage').append('<p> Fiscal Year 2016 Remaining: ' + (b.fields.fy16_revised_budget - b.fields.fy16_ytd_actual) + '</p')
+                    //adding together the original and revised budget
+                    $('#budget16stage').append('<p> Original and Revised Budget total: ' + (b.fields.fy16_original_budget + b.fields.fy16_revised_budget) + '</p>');
+                    //multiplication of actual by 12
+                    $('#budget16stage').append('<p> Actual budget times 15: ' + (b.fields.fy16_ytd_actual * 15) + '</p>');
+                    //division of actual by 12
+                    $('#budget16stage').append('<p> Actual budget divided by 15: ' + (b.fields.fy16_ytd_actual / 15) + '</p>');
+                    //type of fund
+                    $('#budget16stage').append('<p> Fund: ' + b.fields.fund + '</p>');
+                    $("#budget16stage").append("<br><br>");
+                }
+            }
+            var revisedBudgetTotal = 0;
+			var actualTotal = 0;
+			//this loop sums up all of the revised budgets and actual budgets under the tech sol. department and expense type
+			for(var j = 0; j < budget.records.length; j++) {
+			    var a = budget.records[j];
+			    if(a.fields.department == "TECHNOLOGY SOLUTIONS" && a.fields.account_type == "EXPENSE"){
+			        revisedBudgetTotal += a.fields.fy16_revised_budget;
+			        actualTotal += a.fields.fy16_ytd_actual;
+			    }
+			}
+			//displays the sums and revised budget sum - actual sum
+			$('#budget16stage').append('<p> Sum of all Revised Budgets under Technology Solutions Department and Expense Type: '+ revisedBudgetTotal + '</p>');
+			$('#budget16stage').append('<p> Sum of all Actual Budgets under Technology Solutions Department and Expense Type: ' + actualTotal + '</p>');
+       		$('#budget16stage').append('<p> Sum all Revised Budgets - Sum of all actual budgets: ' + (revisedBudgetTotal - actualTotal) + '</p>');
+            $("#budget16stage").append("<br><br>");
+            
+            
+        });        
     </script>
 </body>
 </html>
