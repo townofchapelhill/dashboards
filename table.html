@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <!-- Town Logo -->
+  <img src="toch.png" style="width:100px;height:90px;">
+  <title>Budget and Actuals: Technology Solutions</title>
+  <h2>Budget and Actuals: Technology Solutions Department</h2>
+</head>
+<body>
+  <p><br/><br/></p>
+    <!-- Basic table to display our data from JSON file. -->
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Department</th>
+          <th>FY 2017 YTD Actual</th>
+          <th>FY 2017 Original Budget</th>
+          <th>FY 2017 Revised Budget</th>
+          <th>FY 2017 Remaining</th>
+          <th>Original and Revised Budget</th>
+          <th>Actual Budget imes 15</th>
+          <th>Actual Budget divided by 15</th>
+          <th>Type of Fund</th>
+        </tr>
+      </thead>
+      <tbody>
+        Displaying data for the Technology Solutions Department:
+      </tbody>
+    </table>
+  </div>
+  <!-- This script loops through the budget17 JSON file and
+    displays fiscal year actual, fiscal year original budget, 
+    and fiscal year revised budget information for any data 
+    under the Technology Solutions Department and the Computer 
+    Replacement Fund. It also stores these in an array (items), to then
+    display onto a table on the page.-->
+  <script>
+    $.getJSON("budget17.json", function(budget) {
+      var items = [];
+      for (var i = 0; i < budget.records.length; i++) {
+        b = budget.records[i];
+        if (b.fields.department == "TECHNOLOGY SOLUTIONS" && b.fields.fund == "COMPUTER REPLACEMENT FUND" &&
+          b.fields.account_type == "EXPENSE") {
+          $.each(budget, function(key, val) {
+            items.push("<tr>");
+            items.push("<td id=''" + key + "''>" + b.fields.department + "</td>");
+            items.push("<td id=''" + key + "''>" + b.fields.fy17_ytd_actual + "</td>");
+            items.push("<td id=''" + key + "''>" + b.fields.fy17_original_budget + "</td>");
+            items.push("<td id=''" + key + "''>" + b.fields.fy17_revised_budget + "</td>");
+            items.push("<td id=''" + key + "''>" + (b.fields.fy17_revised_budget - b.fields.fy17_ytd_actual) + "</td>")
+            items.push("<td id=''" + key + "''>" + (b.fields.fy17_original_budget + b.fields.fy17_revised_budget) + "</td>");
+            items.push("<td id=''" + key + "''>" + (b.fields.fy17_ytd_actual * 15) + "</td>");
+            items.push("<td id=''" + key + "''>" + (b.fields.fy17_ytd_actual / 15) + "</td>");
+            items.push("<td id=''" + key + "''>" + b.fields.fund + "</td>");
+            items.push("</tr>");
+            }
+          );
+          //The join method joins the elements of the items array into a string.
+          //The strings are then appended to the HTML table using the appendTo function.
+          $("<tbody/>", {
+            html: items.join("")
+          }).appendTo("table");
+        };
+      };
+    });
+  </script>
+</body>
+</html>
