@@ -1,5 +1,5 @@
 //Gets data from JSON file
-$(function() { $.getJSON("budget17.json", load); });
+$(function() { $.getJSON("data/budget17.json", load); });
 
 //Load function loads the data passed in
 function load(data) {

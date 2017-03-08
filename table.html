@@ -6,7 +6,7 @@
   <!-- Include all compiled plugins (below), or include individual files as needed -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <!-- Town Logo -->
-  <img src="toch.png" style="width:100px;height:90px;">
+  <img src="assets/img/townlogo_full.png" style="width:100px;height:90px;">
   <title>Budget and Actuals: Technology Solutions</title>
   <h2>Budget and Actuals: Technology Solutions Department</h2>
 </head>
@@ -31,7 +31,6 @@
         Displaying data for the Technology Solutions Department:
       </tbody>
     </table>
-  </div>
   <!-- This script loops through the budget17 JSON file and
     displays fiscal year actual, fiscal year original budget, 
     and fiscal year revised budget information for any data 
@@ -39,7 +38,7 @@
     Replacement Fund. It also stores these in an array (items), to then
     display onto a table on the page.-->
   <script>
-    $.getJSON("budget17.json", function(budget) {
+    $.getJSON("data/budget17.json", function(budget) {
       var items = [];
       for (var i = 0; i < budget.records.length; i++) {
         b = budget.records[i];
