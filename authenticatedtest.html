@@ -23,10 +23,13 @@
             $('#stage').html("");
             for (var i = 0; i < budget.records.length; i++) {
                 b = budget.records[i];
-                if (b.fields.object == "60203") {
+                if (1 == 1) {
                     $('#stage').append('<p> Object: ' + b.fields.object + '</p>');
                     $('#stage').append('<p>Description: ' + b.fields.description + '</p>');
-                    $('#stage').append('<p> FY 2017 Available: ' + b.fields.2017_available' + '</p>');
+                    $('#stage').append('<p>FY17 Revised Budget: ' + b.fields["2017_revised_budget"] + '</p>');
+                    $('#stage').append('<p>FY17 Actual: ' + b.fields["2017_actual"] + '</p>');
+                    $('#stage').append('<p>FY17 Encumbrances: ' + b.fields["2017_encumbrances"] + '</p>');
+                    $('#stage').append('<p>FY17 Available: ' + b.fields["2017_available"] + '</p>');
                     $("#stage").append("<br><br>");
                 }
             }
