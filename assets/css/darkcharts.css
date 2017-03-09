@@ -1,0 +1,22 @@
+body {
+    background-image: url("../img/grey_wash_wall.png");
+    background-repeat: repeat;
+}
+
+
+
+#line-chart {
+	min-width: 310px;
+	max-width: 800px;
+	height: 400px;
+	margin: 0 auto
+}
+
+#3d-column, #sliders {
+    min-width: 310px; 
+    max-width: 800px;
+    margin: 0 auto;
+}
+#3d-column {
+    height: 400px; 
+}

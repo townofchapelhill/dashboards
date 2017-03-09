@@ -39,7 +39,7 @@
     Replacement Fund. It also stores these in an array (items), to then
     display onto a table on the page.-->
   <script>
-    $.getJSON("budget17.json", function(budget) {
+    $.getJSON("https://www.chapelhillopendata.org/api/records/1.0/search/?dataset=ts_dashboard_test&rows=1000&apikey=0f36dcd81171f4408301b87c9afc8f8e1294f744eafa61a0dbda3ea4&callback=?", function(budget) {
       var items = [];
       for (var i = 0; i < budget.records.length; i++) {
         b = budget.records[i];

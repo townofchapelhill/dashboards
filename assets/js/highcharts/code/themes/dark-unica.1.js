@@ -26,7 +26,7 @@
         /* global document */
         // Load the fonts
         Highcharts.createElement('link', {
-            href: 'https://fonts.googleapis.com/css?family=Diplomata+SC',
+            href: 'https://fonts.googleapis.com/css?family=Unica+One',
             rel: 'stylesheet',
             type: 'text/css'
         }, null, document.getElementsByTagName('head')[0]);
@@ -49,7 +49,7 @@
                     ]
                 },
                 style: {
-                    fontFamily: '\'Diplomata SC\', cursive'
+                    fontFamily: '\'Unica One\', sans-serif'
                 },
                 plotBorderColor: '#606063'
             },

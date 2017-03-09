@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Budget and Actuals: Technology Solutions</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.6.0/d3.min.js" integrity="sha256-Drvapw32jygRZ7zLNXkZojUELkZC0CfXZ9DW3z6ipX4=" crossorigin="anonymous"></script>
+
+    <!-- to debug, uncomment these: -->
+    <!--<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.js"></script>-->
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.6.0/d3.js" integrity="sha256-LUVOgGhIkoAo3iUAl3VTfgDZfLCOX/+3mfwloxc8i4g=" crossorigin="anonymous"></script>-->
+</head>
+<body>
+    <h2>Budget and Actuals: Technology Solutions Department</h2>
+    <br>
+    <div id="stage">Filter by Tech. Solutions</div>
+    <!-- This script loops through the budget17 JSON file and
+    displays fiscal year actual, fiscal year original budget,
+    and fiscal year revised budget information for any data
+    under the Technology Solutions Department and the Computer
+    Replacement Fund-->
+    <script>
+        $.getJSON("https://www.chapelhillopendata.org/api/records/1.0/search/?dataset=ts_dashboard_test&rows=1000&apikey=0f36dcd81171f4408301b87c9afc8f8e1294f744eafa61a0dbda3ea4&callback=?", function (budget) {
+            $('#stage').html("");
+            for (var i = 0; i < budget.records.length; i++) {
+                b = budget.records[i];
+                if (b.fields.object == "60203") {
+                    $('#stage').append('<p> Object: ' + b.fields.object + '</p>');
+                    $('#stage').append('<p>Description: ' + b.fields.description + '</p>');
+                    $('#stage').append('<p> FY 2017 Available: ' + b.fields.2017_available' + '</p>');
+                    $("#stage").append("<br><br>");
+                }
+            }
+        });
+    </script>
+    <br>
+</body>
+</html>
