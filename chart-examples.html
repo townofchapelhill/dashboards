@@ -1,0 +1,378 @@
+<html>
+<head>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/highcharts-3d.js"></script>
+<link rel="stylesheet" type="text/css" href="./assets/css/charts.css">
+</head>
+<body>
+<!--Area Chart Example-->
+<h3>Area Chart</h3>
+<br>
+<div id="area-chart" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+
+<script>
+Highcharts.chart('area-chart', {
+    chart: {
+        type: 'area'
+    },
+    title: {
+        text: 'US and USSR nuclear stockpiles'
+    },
+    subtitle: {
+        text: 'Source: <a href="http://thebulletin.metapress.com/content/c4120650912x74k7/fulltext.pdf">' +
+            'thebulletin.metapress.com</a>'
+    },
+    xAxis: {
+        allowDecimals: false,
+        labels: {
+            formatter: function () {
+                return this.value; // clean, unformatted number for year
+            }
+        }
+    },
+    yAxis: {
+        title: {
+            text: 'Nuclear weapon states'
+        },
+        labels: {
+            formatter: function () {
+                return this.value / 1000 + 'k';
+            }
+        }
+    },
+    tooltip: {
+        pointFormat: '{series.name} produced <b>{point.y:,.0f}</b><br/>warheads in {point.x}'
+    },
+    plotOptions: {
+        area: {
+            pointStart: 1940,
+            marker: {
+                enabled: false,
+                symbol: 'circle',
+                radius: 2,
+                states: {
+                    hover: {
+                        enabled: true
+                    }
+                }
+            }
+        }
+    },
+    series: [{
+        name: 'USA',
+        data: [null, null, null, null, null, 6, 11, 32, 110, 235, 369, 640,
+            1005, 1436, 2063, 3057, 4618, 6444, 9822, 15468, 20434, 24126,
+            27387, 29459, 31056, 31982, 32040, 31233, 29224, 27342, 26662,
+            26956, 27912, 28999, 28965, 27826, 25579, 25722, 24826, 24605,
+            24304, 23464, 23708, 24099, 24357, 24237, 24401, 24344, 23586,
+            22380, 21004, 17287, 14747, 13076, 12555, 12144, 11009, 10950,
+            10871, 10824, 10577, 10527, 10475, 10421, 10358, 10295, 10104]
+    }, {
+        name: 'USSR/Russia',
+        data: [null, null, null, null, null, null, null, null, null, null,
+            5, 25, 50, 120, 150, 200, 426, 660, 869, 1060, 1605, 2471, 3322,
+            4238, 5221, 6129, 7089, 8339, 9399, 10538, 11643, 13092, 14478,
+            15915, 17385, 19055, 21205, 23044, 25393, 27935, 30062, 32049,
+            33952, 35804, 37431, 39197, 45000, 43000, 41000, 39000, 37000,
+            35000, 33000, 31000, 29000, 27000, 25000, 24000, 23000, 22000,
+            21000, 20000, 19000, 18000, 18000, 17000, 16000]
+    }]
+});
+</script>
+<hr>
+<h3>Basic Bar Chart</h3>
+<!-- Bar Chart Example-->
+<div id="basic-bar" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto"></div>
+
+<script>
+Highcharts.chart('basic-bar', {
+    chart: {
+        type: 'bar'
+    },
+    title: {
+        text: 'Historic World Population by Region'
+    },
+    subtitle: {
+        text: 'Source: <a href="https://en.wikipedia.org/wiki/World_population">Wikipedia.org</a>'
+    },
+    xAxis: {
+        categories: ['Africa', 'America', 'Asia', 'Europe', 'Oceania'],
+        title: {
+            text: null
+        }
+    },
+    yAxis: {
+        min: 0,
+        title: {
+            text: 'Population (millions)',
+            align: 'high'
+        },
+        labels: {
+            overflow: 'justify'
+        }
+    },
+    tooltip: {
+        valueSuffix: ' millions'
+    },
+    plotOptions: {
+        bar: {
+            dataLabels: {
+                enabled: true
+            }
+        }
+    },
+    legend: {
+        layout: 'vertical',
+        align: 'right',
+        verticalAlign: 'top',
+        x: -40,
+        y: 80,
+        floating: true,
+        borderWidth: 1,
+        backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
+        shadow: true
+    },
+    credits: {
+        enabled: false
+    },
+    series: [{
+        name: 'Year 1800',
+        data: [107, 31, 635, 203, 2]
+    }, {
+        name: 'Year 1900',
+        data: [133, 156, 947, 408, 6]
+    }, {
+        name: 'Year 2012',
+        data: [1052, 954, 4250, 740, 38]
+    }]
+});
+</script>
+<hr>
+<h3>3d Column Chart</h3>
+<br>
+<div id="3d-column"></div>
+<div id="sliders">
+    <table>
+        <tr>
+        	<td>Alpha Angle</td>
+        	<td><input id="alpha" type="range" min="0" max="45" value="15"/> <span id="alpha-value" class="value"></span></td>
+        </tr>
+        <tr>
+        	<td>Beta Angle</td>
+        	<td><input id="beta" type="range" min="-45" max="45" value="15"/> <span id="beta-value" class="value"></span></td>
+        </tr>
+        <tr>
+        	<td>Depth</td>
+        	<td><input id="depth" type="range" min="20" max="100" value="50"/> <span id="depth-value" class="value"></span></td>
+        </tr>
+    </table>
+</div>
+<script>
+    // Set up the chart
+var chart = new Highcharts.Chart({
+    chart: {
+        renderTo: '3d-column',
+        type: 'column',
+        options3d: {
+            enabled: true,
+            alpha: 15,
+            beta: 15,
+            depth: 50,
+            viewDistance: 25
+        }
+    },
+    title: {
+        text: 'Chart rotation demo'
+    },
+    subtitle: {
+        text: 'Test options by dragging the sliders below'
+    },
+    plotOptions: {
+        column: {
+            depth: 25
+        }
+    },
+    series: [{
+        data: [29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
+    }]
+});
+
+function showValues() {
+    $('#alpha-value').html(chart.options.chart.options3d.alpha);
+    $('#beta-value').html(chart.options.chart.options3d.beta);
+    $('#depth-value').html(chart.options.chart.options3d.depth);
+}
+
+// Activate the sliders
+$('#sliders input').on('input change', function () {
+    chart.options.chart.options3d[this.id] = this.value;
+    showValues();
+    chart.redraw(false);
+});
+
+showValues();
+</script>
+
+<hr>
+<h3>Pie Chart</h3>
+<br>
+<div id="pie-chart" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
+
+<script>
+Highcharts.chart('pie-chart', {
+    chart: {
+        plotBackgroundColor: null,
+        plotBorderWidth: null,
+        plotShadow: false,
+        type: 'pie'
+    },
+    title: {
+        text: 'Browser market shares January, 2015 to May, 2015'
+    },
+    tooltip: {
+        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+    },
+    plotOptions: {
+        pie: {
+            allowPointSelect: true,
+            cursor: 'pointer',
+            dataLabels: {
+                enabled: true,
+                format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                style: {
+                    color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                }
+            }
+        }
+    },
+    series: [{
+        name: 'Brands',
+        colorByPoint: true,
+        data: [{
+            name: 'Microsoft Internet Explorer',
+            y: 56.33
+        }, {
+            name: 'Chrome',
+            y: 24.03,
+            sliced: true,
+            selected: true
+        }, {
+            name: 'Firefox',
+            y: 10.38
+        }, {
+            name: 'Safari',
+            y: 4.77
+        }, {
+            name: 'Opera',
+            y: 0.91
+        }, {
+            name: 'Proprietary or Undetectable',
+            y: 0.2
+        }]
+    }]
+});
+</script>
+<hr>
+<h3>3d Pie Chart</h3>
+<br>
+<div id="3d-pie" style="height: 400px"></div>
+<script>
+ Highcharts.chart('3d-pie', {
+    chart: {
+        type: 'pie',
+        options3d: {
+            enabled: true,
+            alpha: 45,
+            beta: 0
+        }
+    },
+    title: {
+        text: 'Browser market shares at a specific website, 2014'
+    },
+    tooltip: {
+        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+    },
+    plotOptions: {
+        pie: {
+            allowPointSelect: true,
+            cursor: 'pointer',
+            depth: 35,
+            dataLabels: {
+                enabled: true,
+                format: '{point.name}'
+            }
+        }
+    },
+    series: [{
+        type: 'pie',
+        name: 'Browser share',
+        data: [
+            ['Firefox', 45.0],
+            ['IE', 26.8],
+            {
+                name: 'Chrome',
+                y: 12.8,
+                sliced: true,
+                selected: true
+            },
+            ['Safari', 8.5],
+            ['Opera', 6.2],
+            ['Others', 0.7]
+        ]
+    }]
+});   
+</script>
+<hr>
+
+<h3>Line Chart</h3>
+<div id="line-chart"></div>
+<script>
+    Highcharts.chart('line-chart', {
+
+    title: {
+        text: 'Solar Employment Growth by Sector, 2010-2016'
+    },
+
+    subtitle: {
+        text: 'Source: thesolarfoundation.com'
+    },
+
+    yAxis: {
+        title: {
+            text: 'Number of Employees'
+        }
+    },
+    legend: {
+        layout: 'vertical',
+        align: 'right',
+        verticalAlign: 'middle'
+    },
+
+    plotOptions: {
+        series: {
+            pointStart: 2010
+        }
+    },
+
+    series: [{
+        name: 'Installation',
+        data: [43934, 52503, 57177, 69658, 97031, 119931, 137133, 154175]
+    }, {
+        name: 'Manufacturing',
+        data: [24916, 24064, 29742, 29851, 32490, 30282, 38121, 40434]
+    }, {
+        name: 'Sales & Distribution',
+        data: [11744, 17722, 16005, 19771, 20185, 24377, 32147, 39387]
+    }, {
+        name: 'Project Development',
+        data: [null, null, 7988, 12169, 15112, 22452, 34400, 34227]
+    }, {
+        name: 'Other',
+        data: [12908, 5948, 8105, 11248, 8989, 11816, 18274, 18111]
+    }]
+
+});
+</script>
+</body>
+</html>
