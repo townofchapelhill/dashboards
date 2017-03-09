@@ -19,15 +19,12 @@
     <table class="table">
       <thead>
         <tr>
-          <th>Department</th>
-          <th>FY 2017 YTD Actual</th>
-          <th>FY 2017 Original Budget</th>
+          <th>Account</th>
+          <th>Description</th>
           <th>FY 2017 Revised Budget</th>
-          <th>FY 2017 Remaining</th>
-          <th>Original and Revised Budget</th>
-          <th>Actual Budget imes 15</th>
-          <th>Actual Budget divided by 15</th>
-          <th>Type of Fund</th>
+          <th>FY 2017 Actual</th>
+          <th>FY 2017 Encumbrances</th>
+          <th>FY 2017 Available</th>
         </tr>
       </thead>
     </table>
@@ -43,19 +40,15 @@
       var items = [];
       for (var i = 0; i < budget.records.length; i++) {
         b = budget.records[i];
-        if (b.fields.department == "TECHNOLOGY SOLUTIONS" && b.fields.fund == "COMPUTER REPLACEMENT FUND" &&
-          b.fields.account_type == "EXPENSE") {
+        if (1 == 1) {
           $.each(budget, function(key, val) {
             items.push("<tr>");
-            items.push("<td id=''" + key + "''>" + b.fields.department + "</td>");
-            items.push("<td id=''" + key + "''>" + b.fields.fy17_ytd_actual + "</td>");
-            items.push("<td id=''" + key + "''>" + b.fields.fy17_original_budget + "</td>");
-            items.push("<td id=''" + key + "''>" + b.fields.fy17_revised_budget + "</td>");
-            items.push("<td id=''" + key + "''>" + (b.fields.fy17_revised_budget - b.fields.fy17_ytd_actual) + "</td>")
-            items.push("<td id=''" + key + "''>" + (b.fields.fy17_original_budget + b.fields.fy17_revised_budget) + "</td>");
-            items.push("<td id=''" + key + "''>" + (b.fields.fy17_ytd_actual * 15) + "</td>");
-            items.push("<td id=''" + key + "''>" + (b.fields.fy17_ytd_actual / 15) + "</td>");
-            items.push("<td id=''" + key + "''>" + b.fields.fund + "</td>");
+            items.push("<td id=''" + key + "''>" + b.fields.object + "</td>");
+            items.push("<td id=''" + key + "''>" + b.fields.description + "</td>");
+            items.push("<td id=''" + key + "''>" + b.fields["2017_revised_budget"]  + "</td>");
+            items.push("<td id=''" + key + "''>" +  b.fields["2017_actual"] + "</td>");
+            items.push("<td id=''" + key + "''>" + b.fields["2017_encumbrances"]  + "</td>");
+            items.push("<td id=''" + key + "''>" + b.fields["2017_available"] + "</td>");
             items.push("</tr>");
             }
           );
