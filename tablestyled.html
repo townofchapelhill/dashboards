@@ -14,6 +14,8 @@
   <div class="table-title">
   <h3>Budget and Actuals: Technology Solutions Department</h3>
   </div>
+  <div id="sums">
+  </div>
   <p><br/><br/></p>
     <!-- Basic table to display our data from JSON file. -->
     <table class="table">
@@ -37,9 +39,13 @@
   <script>
     $.getJSON("https://www.chapelhillopendata.org/api/records/1.0/search/?dataset=ts_dashboard_test&rows=1000&apikey=0f36dcd81171f4408301b87c9afc8f8e1294f744eafa61a0dbda3ea4&callback=?", function(budget) {
       var counter = 0;
+      var revisedTotal = 0;
+      var actualTotal = 0;
+      var encumbrancesTotal = 0;
+      var availableTotal = 0;
       for (var i = 0; i < budget.records.length; i++) {
         var items = [];
-        b = budget.records[i];
+        var b = budget.records[i];
         items.push("<tr>")
         items.push("<td>" + b.fields.object + ' ' + "</td>")
         items.push("<td>" + b.fields.description + "</td>");
@@ -50,7 +56,15 @@
         items.push("</tr>")
         items.join('')
         $('.table').append(items)
+        revisedTotal += b.fields["2017_revised_budget"];
+        actualTotal += b.fields["2017_actual"];
+        encumbrancesTotal += b.fields["2017_encumbrances"];
+        availableTotal += b.fields["2017_available"];
       };
+      $('#sums').append('<p>FY 2017 Revised Budget Total: ' + revisedTotal + '</p>')
+      $('#sums').append('<p>FY 2017 Actual Total: ' + actualTotal + '</p>')
+      $('#sums').append('<p>FY 2017 Encumbrances Total: ' + encumbrancesTotal + '</p>')
+      $('#sums').append('<p>FY 2017 Available Total: ' + availableTotal + '</p>')
     });
   </script>
 </body>
