@@ -61,10 +61,10 @@
         encumbrancesTotal += b.fields["2017_encumbrances"];
         availableTotal += b.fields["2017_available"];
       };
-      $('#sums').append('<p>FY 2017 Revised Budget Total: ' + revisedTotal + '</p>')
-      $('#sums').append('<p>FY 2017 Actual Total: ' + actualTotal + '</p>')
-      $('#sums').append('<p>FY 2017 Encumbrances Total: ' + encumbrancesTotal + '</p>')
-      $('#sums').append('<p>FY 2017 Available Total: ' + availableTotal + '</p>')
+      $('#sums').append('<p>FY 2017 Revised Budget Total: ' + revisedTotal.toFixed(2) + '</p>')
+      $('#sums').append('<p>FY 2017 Actual Total: ' + actualTotal.toFixed(2) + '</p>')
+      $('#sums').append('<p>FY 2017 Encumbrances Total: ' + encumbrancesTotal.toFixed(2) + '</p>')
+      $('#sums').append('<p>FY 2017 Available Total: ' + availableTotal.toFixed(2) + '</p>')
     });
   </script>
 </body>
