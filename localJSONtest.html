@@ -43,7 +43,7 @@
                     $('#budget17stage').append('<p> Actual budget divided by 15: ' + (b.fields.fy17_ytd_actual / 15) + '</p>');
                     //type of fund
                     $('#budget17stage').append('<p> Fund: ' + b.fields.fund + '</p>');
-                    $("#budget17stage").append("<br><br>");
+                    $("#budget17stage").append("<br>");
                 }
             }
             var revisedBudgetTotal = 0;
@@ -60,10 +60,15 @@
 			$('#budget17stage').append('<p> Sum of all Revised Budgets under Technology Solutions Department and Expense Type: '+ revisedBudgetTotal + '</p>');
 			$('#budget17stage').append('<p> Sum of all Actual Budgets under Technology Solutions Department and Expense Type: ' + actualTotal + '</p>');
        		$('#budget17stage').append('<p> Sum all Revised Budgets - Sum of all actual budgets: ' + (revisedBudgetTotal - actualTotal) + '</p>');
-            $("#budget17stage").append("<br><br>");
-            
-            
+            $('#budget17stage').append("<br>");
         });
+        
+        //get budget17-metadata json file
+        $.getJSON("data/budget17-metadata.json", function (metadata) {
+            $('#budget17stage').append('<p> Date last modified: ' + metadata.metas.modified + '</p>');
+            $('#budget17stage').append("<br><br>");
+        }); 
+        
         //get budget16 json file
         $.getJSON("./data/budget16.json", function (budget) {
             $('#budget16stage').html("");
@@ -85,7 +90,7 @@
                     $('#budget16stage').append('<p> Actual budget divided by 15: ' + (b.fields.fy16_ytd_actual / 15) + '</p>');
                     //type of fund
                     $('#budget16stage').append('<p> Fund: ' + b.fields.fund + '</p>');
-                    $("#budget16stage").append("<br><br>");
+                    $("#budget16stage").append("<br>");
                 }
             }
             var revisedBudgetTotal = 0;
@@ -102,7 +107,7 @@
 			$('#budget16stage').append('<p> Sum of all Revised Budgets under Technology Solutions Department and Expense Type: '+ revisedBudgetTotal + '</p>');
 			$('#budget16stage').append('<p> Sum of all Actual Budgets under Technology Solutions Department and Expense Type: ' + actualTotal + '</p>');
        		$('#budget16stage').append('<p> Sum all Revised Budgets - Sum of all actual budgets: ' + (revisedBudgetTotal - actualTotal) + '</p>');
-            $("#budget16stage").append("<br><br>");
+            $("#budget16stage").append("<br>");
             
             
         });        
