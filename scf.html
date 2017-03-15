@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="./assets/css/tablecss.css">
+  <title>scf and Actuals: Technology Solutions</title>
+</head>
+<body>
+
+  <div class="table-title">
+  <h3>Solid Waste: Bulky Item Collection</h3>
+  <p><br/><br/></p>
+    <!-- Basic table to display our data from JSON file. -->
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Status</th>
+          <th>Opened</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+
+
+
+  
+<script>
+    $.getJSON("./data/bulkyitems.json", function(scf) {
+      var items = [];
+      for (var i = 0; i < scf.issues.length; i++) {
+        b = scf.issues[i];
+        if (b.status == "Open" || b.status == "Acknowledged") {
+          $.each(scf, function(key, val) {
+            items.push("<tr>");
+            items.push("<td id=''" + key + "''>" + b.id + "</td>");
+            items.push("<td id=''" + key + "''>" + b.status + "</td>");
+            items.push("<td id=''" + key + "''>" + b.created_at + "</td>");
+            items.push("<td id=''" + key + "''>" + b.description + "</td>");
+            items.push("</tr>");
+            }
+          );
+          //The join method joins the elements of the items array into a string.
+          //The strings are then appended to the HTML table using the appendTo function.
+          $("<tbody/>", {
+            html: items.join("")
+          }).appendTo("table");
+        };
+      };
+    });
+  </script>
+  
+  
+  
+  
+  
+</body>
+</html>
