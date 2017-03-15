@@ -26,37 +26,27 @@
     </table>
   </div>
 
-
-
-  
 <script>
     $.getJSON("./data/bulkyitems.json", function(scf) {
-      var items = [];
+      //loop through data and add rows based on "open" 
+      //or "acknowledged" status to the table
       for (var i = 0; i < scf.issues.length; i++) {
-        b = scf.issues[i];
+        //initialize new "row" array after every loop
+        var items = [];
+        var b = scf.issues[i];
         if (b.status == "Open" || b.status == "Acknowledged") {
-          $.each(scf, function(key, val) {
-            items.push("<tr>");
-            items.push("<td id=''" + key + "''>" + b.id + "</td>");
-            items.push("<td id=''" + key + "''>" + b.status + "</td>");
-            items.push("<td id=''" + key + "''>" + b.created_at + "</td>");
-            items.push("<td id=''" + key + "''>" + b.description + "</td>");
-            items.push("</tr>");
-            }
-          );
-          //The join method joins the elements of the items array into a string.
-          //The strings are then appended to the HTML table using the appendTo function.
-          $("<tbody/>", {
-            html: items.join("")
-          }).appendTo("table");
+          items.push("<tr>");
+          items.push("<td>" + b.id + "</td>");
+          items.push("<td>" + b.status + "</td>");
+          items.push("<td>" + b.created_at + "</td>");
+          items.push("<td>" + b.description + "</td>");
+          items.push("</tr>");
+          items.join("");
+          $('.table').append(items);
         };
       };
     });
-  </script>
-  
-  
-  
-  
+</script>
   
 </body>
 </html>

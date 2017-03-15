@@ -37,29 +37,33 @@
     display onto a table on the page.-->
   <script>
     $.getJSON("https://www.chapelhillopendata.org/api/records/1.0/search/?dataset=ts_dashboard_test&rows=1000&apikey=0f36dcd81171f4408301b87c9afc8f8e1294f744eafa61a0dbda3ea4&callback=?", function(budget) {
-      var counter = 0;
+      //initialize sums
       var revisedTotal = 0;
       var actualTotal = 0;
       var encumbrancesTotal = 0;
       var availableTotal = 0;
+      //loop through data and add rows to the table
       for (var i = 0; i < budget.records.length; i++) {
+        //initialize new "row" array after every loop
         var items = [];
         var b = budget.records[i];
-        items.push("<tr>")
-        items.push("<td>" + b.fields.object + ' ' + "</td>")
+        items.push("<tr>");
+        items.push("<td>" + b.fields.object + ' ' + "</td>");
         items.push("<td>" + b.fields.description + "</td>");
         items.push("<td>" + b.fields["2017_revised_budget"]  + "</td>");
         items.push("<td>" + b.fields["2017_actual"] + "</td>");
         items.push("<td>" + b.fields["2017_encumbrances"]  + "</td>");
         items.push("<td>" + b.fields["2017_available"] + "</td>");
-        items.push("</tr>")
-        items.join('')
-        $('.table').append(items)
+        items.push("</tr>");
+        items.join('');
+        $('.table').append(items);
+        //increment sums
         revisedTotal += b.fields["2017_revised_budget"];
         actualTotal += b.fields["2017_actual"];
         encumbrancesTotal += b.fields["2017_encumbrances"];
         availableTotal += b.fields["2017_available"];
       };
+      //display sums
       $('#sums').append('<p>FY 2017 Revised Budget Total: ' + revisedTotal.toFixed(2) + '</p>')
       $('#sums').append('<p>FY 2017 Actual Total: ' + actualTotal.toFixed(2) + '</p>')
       $('#sums').append('<p>FY 2017 Encumbrances Total: ' + encumbrancesTotal.toFixed(2) + '</p>')
