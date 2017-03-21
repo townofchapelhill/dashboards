@@ -9,10 +9,9 @@
   <title>scf and Actuals: Technology Solutions</title>
 </head>
 <body>
-
   <div class="table-title">
   <h3>Solid Waste: Bulky Item Collection</h3>
-  <p><br/><br/></p>
+  <div class="counters"></div>
     <!-- Basic table to display our data from JSON file. -->
     <table class="table">
       <thead>
@@ -28,12 +27,16 @@
 
 <script>
     $.getJSON("./data/bulkyitems.json", function(scf) {
+      //initialize counters for open and acknowledged records
+      var openCounter = 0;
+      var ackCounter = 0;
       //loop through data and add rows based on "open" 
       //or "acknowledged" status to the table
       for (var i = 0; i < scf.issues.length; i++) {
+        //variable b accesses scf issues data at index i
+        var b = scf.issues[i];
         //initialize new "row" array after every loop
         var items = [];
-        var b = scf.issues[i];
         if (b.status == "Open" || b.status == "Acknowledged") {
           items.push("<tr>");
           items.push("<td>" + b.id + "</td>");
@@ -44,7 +47,17 @@
           items.join("");
           $('.table').append(items);
         };
+        //increment counters
+        if (b.status == "Open") {
+          openCounter += 1;
+        }
+        if (b.status == "Acknowledged") {
+          ackCounter += 1;
+        }
       };
+      //append counter values to top of page ("counters" class)
+      $('.counters').append("<p> Opened records: " + openCounter + "</p>");
+      $('.counters').append("<p> Acknowledged records: " + ackCounter + "</p>");
     });
 </script>
   
