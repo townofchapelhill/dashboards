@@ -36,6 +36,14 @@
     It also stores these in an array (items), to then
     display onto a table on the page.-->
   <script>
+    //this function places commas at the correct thousand places for an input integer
+    function placeCommas(val){
+      while (/(\d+)(\d{3})/.test(val.toString())){
+        val = val.toString().replace(/(\d+)(\d{3})/, '$1'+','+'$2');
+      }
+      return val;
+    }
+    //get the JSON file using link
     $.getJSON("https://www.chapelhillopendata.org/api/records/1.0/search/?dataset=ts_dashboard_test&rows=1000&apikey=0f36dcd81171f4408301b87c9afc8f8e1294f744eafa61a0dbda3ea4&callback=?", function(budget) {
       //initialize sums
       var revisedTotal = 0;
@@ -63,11 +71,16 @@
         encumbrancesTotal += b.fields["2017_encumbrances"];
         availableTotal += b.fields["2017_available"];
       };
-      //display sums
-      $('#sums').append('<p>FY 2017 Revised Budget Total: ' + revisedTotal.toFixed(2) + '</p>')
-      $('#sums').append('<p>FY 2017 Actual Total: ' + actualTotal.toFixed(2) + '</p>')
-      $('#sums').append('<p>FY 2017 Encumbrances Total: ' + encumbrancesTotal.toFixed(2) + '</p>')
-      $('#sums').append('<p>FY 2017 Available Total: ' + availableTotal.toFixed(2) + '</p>')
+      //rounds values to two decimal places and place commas in
+      revisedTotal = placeCommas(revisedTotal.toFixed(2));
+      actualTotal = placeCommas(actualTotal.toFixed(2));
+      encumbrancesTotal = placeCommas(encumbrancesTotal.toFixed(2));
+      availableTotal = placeCommas(availableTotal.toFixed(2));
+      //display sums with dollar signs to the top of page ("sums" id)
+      $('#sums').append('<p>FY 2017 Revised Budget Total: $' + revisedTotal + '</p>')
+      $('#sums').append('<p>FY 2017 Actual Total: $' + actualTotal + '</p>')
+      $('#sums').append('<p>FY 2017 Encumbrances Total: $' + encumbrancesTotal + '</p>')
+      $('#sums').append('<p>FY 2017 Available Total: $' + availableTotal + '</p>')
     });
   </script>
 </body>
