@@ -1,0 +1,54 @@
+[{
+    "datasetid": "ts_dashboard_test",
+    "recordid": "82448dea46bdfa4d3f9c2f2ddce8ded50025b395",
+    "fields": {
+        "2017_revised_budget": 500.0,
+        "2017_available": 0.0,
+        "description": "TUITION REIMBURSEMENT",
+        "object": "60140",
+        "2017_encumbrances": 0.0,
+        "2017_actual": 500.0
+    },
+    "record_timestamp": "2017-03-08T18:58:00+00:00"
+    
+}, {
+    "datasetid": "ts_dashboard_test",
+    "recordid": "9bd4b166b5cc5219c074479a239cdb99d9348c9d",
+    "fields": {
+        "2017_revised_budget": 0.0,
+        "2017_available": 0.0,
+        "description": "PAY PHONES",
+        "object": "60203",
+        "2017_encumbrances": 0.0,
+        "2017_actual": 0.0
+    },
+    "record_timestamp": "2017-03-08T18:58:00+00:00"
+    
+}, {
+    "datasetid": "ts_dashboard_test",
+    "recordid": "661a4387c007feb5a55afc03340b40fc172ce8c1",
+    "fields": {"2017_revised_budget": 1000.0,
+    "2017_available": 1000.0,
+    "description": "VOICE/NETWORK/SECURITY CAMERAS",
+    "object": "60204",
+    "2017_encumbrances": 0.0,
+    "2017_actual": 0.0
+    }, 
+    "record_timestamp": "2017-03-08T18:58:00+00:00"
+    
+}, {
+    
+    "datasetid": "ts_dashboard_test", "recordid": "e1f0c88c65595e4a4e4d2476cdc8c1e46ba13c58", "fields": {"2017_revised_budget": 0.0, "2017_available": 0.0, "description": "M&R - EQUIPMENT", "object": "60370", "2017_encumbrances": 0.0, "2017_actual": 0.0}, "record_timestamp": "2017-03-08T18:58:00+00:00"}, {"datasetid": "ts_dashboard_test", "recordid": "83d8584454ae097790d53d1532f43287e1418f9b", "fields": {"2017_revised_budget": 0.0, "2017_available": 0.0, "description": "VEHICLE REPLACEMENT CHARGES", "object": "60650", "2017_encumbrances": 0.0, "2017_actual": 0.0}, "record_timestamp": "2017-03-08T18:58:00+00:00"}, {"datasetid": "ts_dashboard_test", "recordid": "69fc101f0219de686958ec844bfb77958dca4ecb", "fields": {"2017_revised_budget": 0.0, "2017_available": 0.0, "description": "GIS SOFTWARE & SERVICES", "object": "60696", "2017_encumbrances": 0.0, "2017_actual": 0.0}, "record_timestamp": "2017-03-08T18:58:00+00:00"}, {"datasetid": "ts_dashboard_test", "recordid": "72c5e4fb549ee984598b764b96d5c2d5ff304646", "fields": {"2017_revised_budget": 600.0, "2017_available": 192.25, "description": "TELEPHONE", "object": "60200", "2017_encumbrances": 0.0, "2017_actual": 407.75}, "record_timestamp": "2017-03-08T18:58:00+00:00"}, {"datasetid": "ts_dashboard_test", "recordid": "484d857f27e13b820d47502975f739b097426b33", "fields": {"2017_revised_budget": 0.0, "2017_available": 0.0, "description": "NETWORK & DATA COMMUNICATIONS", "object": "60205", "2017_encumbrances": 0.0, "2017_actual": 0.0}, "record_timestamp": "2017-03-08T18:58:00+00:00"}, {"datasetid": "ts_dashboard_test", "recordid": "eec27fffefdf07e23488cd11f696c59aac319c14", "fields": {"2017_revised_budget": 1000.0, "2017_available": 1000.0, "description": "M&R - BUILDINGS", "object": "60330", "2017_encumbrances": 0.0, "2017_actual": 0.0}, "record_timestamp": "2017-03-08T18:58:00+00:00"}, {"datasetid": "ts_dashboard_test", "recordid": "19d11b07f222b7fd732a1d8a8cbafa1fe28e46e6", "fields": {"2017_revised_budget": 40000.0, "2017_available": 28606.0, "description": "MISC CONTRACTED SERVICES", "object": "60699", "2017_encumbrances": 7000.0, "2017_actual": 4394.0}, "record_timestamp": "2017-03-08T18:58:00+00:00"}, {"datasetid": "ts_dashboard_test", "recordid": "fd2ddd202eab1d7bfc7a783f002b3925d56c4b57", "fields": {"2017_revised_budget": 150.0, "2017_available": 150.0, "description": "COPYING COSTS", "object": "60705", "2017_encumbrances": 0.0, "2017_actual": 0.0}, "record_timestamp": "2017-03-08T18:58:00+00:00"}, {"datasetid": "ts_dashboard_test", "recordid": "d794de3e52c0348351effbf87dc234121be6f9fe", "fields": {"2017_revised_budget": 1700.0, "2017_available": 1424.73, "description": "VEHICLE FUEL", "object": "60832", "2017_encumbrances": 0.0, "2017_actual": 275.27}, "record_timestamp": "2017-03-08T18:58:00+00:00"}, {"datasetid": "ts_dashboard_test", "recordid": "d72cacf85cdcd5e3e718dfc32ffb57f285bf3eed", "fields": {"2017_revised_budget": 53619.0, "2017_available": 53619.0, "description": "CAPITAL EQUIPMENT", "object": "80400", "2017_encumbrances": 0.0, "2017_actual": 0.0}, "record_timestamp": "2017-03-08T18:58:00+00:00"}, {"datasetid": "ts_dashboard_test", "recordid": "8aac41c4c98ed2d2906ab25657f20bd521b161a5", "fields": {"2017_revised_budget": 46300.0, "2017_available": 38933.53, "description": "PROFESSIONAL SERVICES", "object": "60000", "2017_encumbrances": 0.0, "2017_actual": 7366.47}, "record_timestamp": "2017-03-08T18:58:00+00:00"}, {"datasetid": "ts_dashboard_test", "recordid": "9cbf54da029ded7eaf43ea8168ce54e4032d8741", "fields": {"2017_revised_budget": 0.0, "2017_available": 0.0, "description": "PERSONNEL AGENCY PAYMENTS", "object": "60080", "2017_encumbrances": 0.0, "2017_actual": 0.0}, "record_timestamp": "2017-03-08T18:58:00+00:00"}, {"datasetid": "ts_dashboard_test", "recordid": "da07b837a462695e8253972d45d71c704ce232fa", "fields": {"2017_revised_budget": 1000.0, "2017_available": 655.0, "description": "PERSONNEL ADVERTISING", "object": "60241", "2017_encumbrances": 0.0, "2017_actual": 345.0}, "record_timestamp": "2017-03-08T18:58:00+00:00"}, {"datasetid": "ts_dashboard_test", "recordid": "29f76f8eeadb7387c52ebc62733f8a55655a707f", "fields": {"2017_revised_budget": 18610.0, "2017_available": 7795.28, "description": "SOFTWARE LICENSES/SUPPT AGREE", "object": "60690", "2017_encumbrances": 2998.0, "2017_actual": 7816.72}, "record_timestamp": "2017-03-08T18:58:00+00:00"}, {"datasetid": "ts_dashboard_test", "recordid": "75299b937f222fe9ff102108b8cdc7f30b3eef1e", "fields": {"2017_revised_budget": 13249.0, "2017_available": -0.02, "description": "DATABASE - CONTRACTED", "object": "60693", "2017_encumbrances": 0.0, "2017_actual": 13249.02}, "record_timestamp": "2017-03-08T18:58:00+00:00"}, {"datasetid": "ts_dashboard_test", "recordid": "b7945a04f13dee2966bb1308c03c44e5594d68d3", "fields": {"2017_revised_budget": 47200.0, "2017_available": 46066.21, "description": "WEB SERVICES-CONTRACTED", "object": "60695", "2017_encumbrances": 0.0, "2017_actual": 1133.79}, "record_timestamp": "2017-03-08T18:58:00+00:00"}, {"datasetid": "ts_dashboard_test", "recordid": "35255038aa0fab013685fd8e2aa334fa988b98ce", "fields": {"2017_revised_budget": 38800.0, "2017_available": 29645.56, "description": "COMPUTER SMALL EQUIP/SUPPLIES", "object": "60702", "2017_encumbrances": 0.0, "2017_actual": 9154.44}, "record_timestamp": "2017-03-08T18:58:00+00:00"}, {"datasetid": "ts_dashboard_test", "recordid": "a3169986a8a6930371567a8a9c5ba88829be0c0d", "fields": {"2017_revised_budget": 18730.0, "2017_available": 381.53, "description": "BUSINESS MEETINGS & TRAINING", "object": "60100", "2017_encumbrances": 0.0, "2017_actual": 18348.47}, "record_timestamp": "2017-03-08T18:58:00+00:00"}, {"datasetid": "ts_dashboard_test", "recordid": "86cdd51aa1a403340482f267653b75c53e83a6c2", "fields": {"2017_revised_budget": 34042.0, "2017_available": 7839.63, "description": "TELEPHONE MAINTENANCE", "object": "60201", "2017_encumbrances": 17529.24, "2017_actual": 8673.13}, "record_timestamp": "2017-03-08T18:58:00+00:00"}, {"datasetid": "ts_dashboard_test", "recordid": "d7635ae81b18862a6a15a93f008f687e99c3d3c3", "fields": {"2017_revised_budget": 4500.0, "2017_available": 1985.96, "description": "CELLULAR PHONES", "object": "60215", "2017_encumbrances": 0.0, "2017_actual": 2514.04}, "record_timestamp": "2017-03-08T18:58:00+00:00"}, {"datasetid": "ts_dashboard_test", "recordid": "845f14aaa5dbeac8740541d1d3ff007d379ec85e", "fields": {"2017_revised_budget": 600.0, "2017_available": 555.97, "description": "FLEET USE CHARGES", "object": "60640", "2017_encumbrances": 0.0, "2017_actual": 44.03}, "record_timestamp": "2017-03-08T18:58:00+00:00"}, {"datasetid": "ts_dashboard_test", "recordid": "86b59e74e76b7233210e31713176ba34a2f87650", "fields": {"2017_revised_budget": 149500.0, "2017_available": 5588.5, "description": "SOFTWARE USE CHARGES", "object": "60663", "2017_encumbrances": 0.0, "2017_actual": 143911.5}, "record_timestamp": "2017-03-08T18:58:00+00:00"}, {"datasetid": "ts_dashboard_test", "recordid": "d8139789ba9a7b8e13a2b5a576918cc6fe441e59", "fields": {"2017_revised_budget": 76751.0, "2017_available": 10212.3, "description": "COMPUTER/NETWORK - CONTRACTED", "object": "60691", "2017_encumbrances": 5369.04, "2017_actual": 61169.66}, "record_timestamp": "2017-03-08T18:58:00+00:00"}, {"datasetid": "ts_dashboard_test", "recordid": "bf2220ef3914085844fcd07c1408f376f48e6402", "fields": {"2017_revised_budget": 1500.0, "2017_available": 662.8, "description": "SUPPLIES", "object": "60700", "2017_encumbrances": 0.0, "2017_actual": 837.2}, "record_timestamp": "2017-03-08T18:58:00+00:00"}, {"datasetid": "ts_dashboard_test", "recordid": "0c21419012843641c09ec436b29c80752bbd7eff", "fields": {"2017_revised_budget": 7500.0, "2017_available": 7500.0, "description": "SMALL EQUIPMENT", "object": "60720", "2017_encumbrances": 0.0, "2017_actual": 0.0}, "record_timestamp": "2017-03-08T18:58:00+00:00"}, {"datasetid": "ts_dashboard_test", "recordid": "2277a6237a57f917ba6635517a29d0b7215309b8", "fields": {"2017_revised_budget": 5020.0, "2017_available": 820.0, "description": "COMPUTER & NETWORK TRAINING", "object": "60125", "2017_encumbrances": 0.0, "2017_actual": 4200.0}, "record_timestamp": "2017-03-08T18:58:00+00:00"}, {"datasetid": "ts_dashboard_test", "recordid": "a4787d029156e70af8598b11d860126f40ef1644", "fields": {"2017_revised_budget": 500.0, "2017_available": 488.89, "description": "DUES & SUBSCRIPTIONS", "object": "60130", "2017_encumbrances": 0.0, "2017_actual": 11.11}, "record_timestamp": "2017-03-08T18:58:00+00:00"}, {"datasetid": "ts_dashboard_test", "recordid": "aa2c7aa543fb6fd7281d81e5ae677740d46e40bc", "fields": {"2017_revised_budget": 150.0, "2017_available": 131.22, "description": "POSTAGE", "object": "60220", "2017_encumbrances": 0.0, "2017_actual": 18.78}, "record_timestamp": "2017-03-08T18:58:00+00:00"}, {"datasetid": "ts_dashboard_test", "recordid": "38bc067346f833ebf29cd086c4f8ca4b28f4fdd4", "fields": {"2017_revised_budget": 3750.0, "2017_available": 1875.0, "description": "COMPUTER USE CHARGES", "object": "60660", "2017_encumbrances": 0.0, "2017_actual": 1875.0}, "record_timestamp": "2017-03-08T18:58:00+00:00"
+        
+}, {
+    "datasetid": "ts_dashboard_test", "recordid": "784f611609b10ae2a68df7406b039b8808dbd68a",
+    "fields": {
+        "2017_revised_budget": 4000.0,
+        "2017_available": 3630.4,
+        "description": "APPLICATION SOFTWARE",
+        "object": "60710",
+        "2017_encumbrances": 0.0,
+        "2017_actual": 369.6
+    },
+    "record_timestamp": "2017-03-08T18:58:00+00:00"
+}]

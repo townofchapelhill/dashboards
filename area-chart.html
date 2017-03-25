@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+   <script src="https://code.highcharts.com/highcharts.js"></script>
+</head>
+
+<body>
+   <div id="container" style="height: 400px"></div>
+   <script type="text/javascript">
+      //On page ready
+      $(function() {
+         //create array to hold the separate budgets
+         var budgets = {}
+         //Pull data using jquery ajax request
+         $.getJSON('data/dashboard-test.json', function(data) {
+            //loop through data
+            for (var i = 0; i < data.length; i++) {
+               var item = data[i].fields; //Relevant info
+               var fund = item.description; //budget name
+
+               //If we've never seen this fund name for the given object
+               //before, create a new listing for it
+               if (!budgets[fund]) {
+                  //And populate listing with zero values
+                  budgets[fund] = {
+                     "Revised Budget": 0,
+                     "Actual": 0,
+                     "Encumbrances": 0,
+                     "Available": 0
+                  }
+               }
+
+               //Add each subcatgory to main budget fund
+               budgets[fund]["Revised Budget"] += item["2017_revised_budget"];
+               budgets[fund]["Actual"] += item["2017_actual"];
+               budgets[fund]["Encumbrances"] += item["2017_encumbrances"];
+               budgets[fund]["Available"] += item["2017_available"];
+               
+            }
+
+            //Tranform the fund mapping object into an array of fund names
+            var funds = $.map(budgets, function(value, index) {
+               return index;
+            });
+
+            //Get 4 data series from the formatted data
+            var datasets = [
+               getData("Revised Budget", budgets),
+               getData("Actual", budgets),
+               getData("Encumbrances", budgets),
+               getData("Available", budgets),
+            ];
+
+            //Helper method to create datasets that are properly
+            //formatted for highcharts
+            function getData(dataName, dataSet) {
+               //Set series name
+               var ret = {
+                  name: dataName
+               };
+               //Set series values
+               ret.data = $.map(dataSet, function(value, key) {
+                  return Math.round(value[dataName]);
+               });
+               return ret;
+            };
+
+            // draw chart
+            $('#container').highcharts({
+               chart: {
+                  type: "area"
+               },
+               title: {
+                  text: "TS-Dashboard-Test"
+               },
+               xAxis: {
+                  categories: funds,
+                  title: {
+                     text: "Funds"
+                  },
+                  labels: {
+                     enabled: true
+                  }
+               },
+               yAxis: {
+                  title: {
+                     text: "Dollars"
+                  }
+               },
+               series: datasets,
+               legend: {
+               }
+            });
+         });
+      });
+   </script>
+</body>
+
+</html>
