@@ -20,6 +20,7 @@
           <th>Status</th>
           <th>Opened</th>
           <th>Description</th>
+          <th>Assignee</th>
         </tr>
       </thead>
     </table>
@@ -44,6 +45,7 @@
           items.push("<td>" + b.status + "</td>");
           items.push("<td>" + b.created_at + "</td>");
           items.push("<td>" + b.description + "</td>");
+          items.push("<td>" + b.assignee.name + "</td>");
           items.push("</tr>");
           items.join("");
           $('.table').append(items);
