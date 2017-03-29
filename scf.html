@@ -41,7 +41,7 @@
         if (b.status == "Open" || b.status == "Acknowledged") {
           items.push("<tr>");
           //hyperlink placed in each id
-          items.push("<td>" + "<a href=https://crm.seeclickfix.com/#/organizations/1102/issues/" + b.id + "'>" + b.id + "</a>" + "</td>");
+          items.push("<td>" + "<a href='https://crm.seeclickfix.com/#/organizations/1102/issues/" + b.id + "'>" + b.id + "</a>" + "</td>");
           items.push("<td>" + b.status + "</td>");
           items.push("<td>" + b.created_at + "</td>");
           items.push("<td>" + b.description + "</td>");
