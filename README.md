@@ -12,9 +12,4 @@ Dashboards Project for Open Data (http://www.chapelhillopendata.org)
                   |_|                         
 </pre>
 <br>
-<b>March 8, 2017</b> 
-<br>
-Stylized tables. Need to fix table script. Tested ODS portal authentication.
 
-<hr>
-First deployment of budget dashboard scheduled for April 1st, 2017 for technology solutions department.
