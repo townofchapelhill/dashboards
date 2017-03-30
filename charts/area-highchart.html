@@ -14,7 +14,7 @@
          //create array to hold the separate budgets
          var budgets = {}
          //Pull data using jquery ajax request
-         $.getJSON('data/dashboard-test.json', function(data) {
+         $.getJSON('../data/dashboard-test.json', function(data) {
             //loop through data
             for (var i = 0; i < data.length; i++) {
                var item = data[i].fields; //Relevant info
