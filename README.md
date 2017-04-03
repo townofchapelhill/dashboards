@@ -12,4 +12,5 @@ Dashboards Project for Open Data (http://www.chapelhillopendata.org)
                   |_|                         
 </pre>
 <br>
+This repository outlines changes and additions to charts, scripts, and more in regards to data sets for the Town of Chapel Hill. Specifically looks at changes in the 2017 Budget and Actuals data set.
 
