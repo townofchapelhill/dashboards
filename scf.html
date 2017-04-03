@@ -39,11 +39,71 @@
         //initialize new "row" array after every loop
         var items = [];
         if (b.status == "Open" || b.status == "Acknowledged") {
+          //create variables for month, day, year, and time
+          //splitting up the entire date/time string allows easier access
+          var created_at = b.created_at.split("-");
+          var time_and_date = created_at[2].split('T');
+          var month = created_at[1];
+          //switch statement converts month's number value to its name
+          switch(month){
+            case '01':
+              month = "January";
+              break;
+            case '02':
+              month = "February";
+              break;
+            case '03':
+              month = "March";
+              break;
+            case '04':
+              month = "April";
+              break;
+            case '05':
+              month = "May";
+              break;
+            case '06':
+              month = "June";
+              break;
+            case '07':
+              month = "July";
+              break;
+            case '08':
+              month = "August";
+              break;
+            case '09':
+              month = "September";
+              break;
+            case '10':
+              month = "October";
+              break;
+            case '11':
+              month = "November";
+              break;
+            case '12':
+              month = "December";
+              break;
+            default:
+              month = "?";
+          }
+          var day = time_and_date[0];
+          var year = created_at[0];
+          var time = time_and_date[1];
+          var hour = time.split(':');
+          //if statement decides 'am' or 'pm' and conversion of 24 hr clock to 12
+          if(hour[0] >= 0 && hour[0] <= 11){
+            hour[0] = hour[0] * 1;
+            time = hour.join(':') + 'am';
+          }else{
+            hour[0] = hour[0] - 12;
+            time = hour.join(':') + 'pm';
+          }
+          //create variable for the parsed date to place into the table
+          var parsed_date = month + ' ' + day + ', ' + year + ' ' + time;
           items.push("<tr>");
           //hyperlink placed in each id
           items.push("<td>" + "<a href='https://crm.seeclickfix.com/#/organizations/1102/issues/" + b.id + "'>" + b.id + "</a>" + "</td>");
           items.push("<td>" + b.status + "</td>");
-          items.push("<td>" + b.created_at + "</td>");
+          items.push("<td>" + parsed_date + "</td>");
           items.push("<td>" + b.description + "</td>");
           items.push("<td>" + b.assignee.name + "</td>");
           items.push("</tr>");
