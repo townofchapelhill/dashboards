@@ -21,6 +21,7 @@
           <th>Opened</th>
           <th>Description</th>
           <th>Assignee</th>
+          <th>Agent</th>
         </tr>
       </thead>
     </table>
@@ -106,6 +107,7 @@
           items.push("<td>" + parsed_date + "</td>");
           items.push("<td>" + b.description + "</td>");
           items.push("<td>" + b.assignee.name + "</td>");
+          items.push("<td>" + b.agent.name + "</td>");
           items.push("</tr>");
           items.join("");
           $('.table').append(items);
