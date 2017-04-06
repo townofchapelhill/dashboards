@@ -39,7 +39,7 @@
         var b = scf.issues[i];
         //initialize new "row" array after every loop
         var items = [];
-        if (b.status == "Open" || b.status == "Acknowledged") {
+        if ((b.status == "Open" || b.status == "Acknowledged") && (b.agent.name == 'Alison Hinks' || b.agent.name == 'Daniel Dunn' || b.agent.name == 'Ross Tompkins')) {
           //create variables for month, day, year, and time
           //splitting up the entire date/time string allows easier access
           var created_at = b.created_at.split("-");
