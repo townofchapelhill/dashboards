@@ -11,7 +11,7 @@
    <script type="text/javascript">
       //On page ready
       $(function() {
-         //Pull data using jquery ajax request
+         //get API json
          $.getJSON('https://www.chapelhillopendata.org/api/records/1.0/search/?dataset=ts_dashboard_test&rows=1000&apikey=0f36dcd81171f4408301b87c9afc8f8e1294f744eafa61a0dbda3ea4&callback=?', function(data) {
             //create array to hold the separate budgets
             var budgets = {};
