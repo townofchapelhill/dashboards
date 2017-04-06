@@ -16,25 +16,25 @@
          var datasets = [];
 
          //Pull data using jquery ajax request
-         $.getJSON('../data/ts_dashboard_test.json', function(data) {
+         $.getJSON('https://www.chapelhillopendata.org/api/records/1.0/search/?dataset=ts_dashboard_test&rows=1000&apikey=0f36dcd81171f4408301b87c9afc8f8e1294f744eafa61a0dbda3ea4&callback=?', function(data) {
             //Iterate through data
-            for (var i = 0; i < data.length; i++) {
+            for (var i = 0; i < data.records.length; i++) {
 
                //Grab the details of each account
-               var item = data[i];
+               var item = data.records[i];
 
                //Create a new dataset for this account
-               var account = {}
+               var account = {};
 
                //Set the account name to their description
-               account.name = item.description
+               account.name = item.fields.description;
 
                //Populate relevant data
                account.data = [
-                  item["2017_revised_budget"],
-                  item["2017_available"],
-                  item["2017_encumbrances"],
-                  item["2017_actual"]
+                  item.fields["2017_revised_budget"],
+                  item.fields["2017_available"],
+                  item.fields["2017_encumbrances"],
+                  item.fields["2017_actual"]
                ];
 
                //Store the accounts into our dataset array
