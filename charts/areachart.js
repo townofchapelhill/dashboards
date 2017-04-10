@@ -1,0 +1,80 @@
+   //On page ready
+   $(function() {
+      //get API json
+      $.getJSON('https://www.chapelhillopendata.org/api/records/1.0/search/?dataset=ts_dashboard_test&rows=1000&apikey=0f36dcd81171f4408301b87c9afc8f8e1294f744eafa61a0dbda3ea4&callback=?', function(data) {
+         //create array to hold the separate budgets
+         var budgets = {};
+         //loop through data
+         for (var i = 0; i < data.records.length; i++) {
+            var item = data.records[i]; //Relevant info
+            var fund = item.fields.description; //budget name
+            //If we've never seen this fund name for the given object
+            //before, create a new listing for it
+            if (!budgets[fund]) {
+               //And populate listing with zero values
+               budgets[fund] = {
+                  "Revised Budget": 0,
+                  "Actual": 0,
+                  "Encumbrances": 0,
+                  "Available": 0
+               }
+            }
+            //Add each subcatgory to main budget fund
+            budgets[fund]["Revised Budget"] += item.fields["2017_revised_budget"];
+            budgets[fund]["Actual"] += item.fields["2017_actual"];
+            budgets[fund]["Encumbrances"] += item.fields["2017_encumbrances"];
+            budgets[fund]["Available"] += item.fields["2017_available"];
+
+         }
+         //Tranform the fund mapping object into an array of fund names
+         var funds = $.map(budgets, function(value, index) {
+            return index;
+         });
+         //Get 4 data series from the formatted data
+         var datasets = [
+            getData("Revised Budget", budgets),
+            getData("Actual", budgets),
+            getData("Encumbrances", budgets),
+            getData("Available", budgets),
+         ];
+         //Helper method to create datasets that are properly
+         //formatted for highcharts
+         function getData(dataName, dataSet) {
+            //Set series name
+            var ret = {
+               name: dataName
+            };
+            //Set series values
+            ret.data = $.map(dataSet, function(value, key) {
+               return Math.round(value[dataName]);
+            });
+            return ret;
+         };
+         // draw chart
+         $('#container3').highcharts({
+            chart: {
+               type: "area"
+            },
+            title: {
+               text: "2017 Technology Solutions Budget"
+            },
+            xAxis: {
+               categories: funds,
+               title: {
+                  text: "Funds"
+               },
+               labels: {
+                  enabled: true
+               }
+            },
+            yAxis: {
+               title: {
+                  text: "Dollars"
+               }
+            },
+            series: datasets,
+            legend: {}
+         });
+      });
+   });
+   
