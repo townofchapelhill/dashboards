@@ -26,16 +26,16 @@
                 </li>
             </ul>
             <!-- form allows users to search for a desired dataset -->
-            <form class="form-inline mt-2 mt-md-0">
-                <input class="form-control mr-sm-2" type="text" placeholder="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
+            <!--<form class="form-inline mt-2 mt-md-0">-->
+            <!--    <input class="form-control mr-sm-2" type="text" placeholder="Search">-->
+            <!--    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
+            <!--</form>-->
         </div>
     </nav>
-    <h1>Dashboard</h1>
+    <h1 align="center">Budget Dashboard</h1>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-6" style="border: 1px solid lightgrey">
                 <!-- Pie Chart -->
                 <div id="container2">
                     <!-- Must have JS to make chart show up. -->
@@ -43,7 +43,7 @@
                 </div>
             </div>
             <!-- Bar Graph -->
-            <div class="col-md-6">
+            <div class="col-md-6" style="border: 1px solid lightgrey">
                 <div id="container1">
                     <h4>Bar Graph</h4>
                     <script src="charts/bargraphv1-highcharts.js"></script>
@@ -54,7 +54,7 @@
 
         <div class="row">
             <!-- Area Chart -->
-            <div class="col-md-6">
+            <div class="col-md-6" style="border: 1px solid lightgrey">
                 <div id="container3">
                     <h4>Area Chart</h4>
                     <script src="charts/areachart.js"></script>
@@ -62,7 +62,7 @@
             </div>
 
             <!-- Extra Space -->
-            <div class="col-md-6">
+            <div class="col-md-6" style="border: 1px solid lightgrey">
                 <div id="container4">
                     <h4>Lorem Ipsum</h4>
                     Lorem ipsum dolor sit amet, cu sonet tractatos eam, no mea nobis omnesque perpetua. In sanctus graecis detraxit qui, est te odio vidit. Vocent laboramus vis id, viris accommodare eu quo. Ex porro soleat dissentias cum, cu cum novum nemore graecis, pro
@@ -71,11 +71,14 @@
             </div>
         </div>
     </div>
+    <br>
     <div class="table-title">
         <h3>Budget and Actuals: Technology Solutions Department</h3>
     </div>
+    <br>
     <div id="sums">
     </div>
+    <br>
     <p></p>
     <!-- Basic table to display our data from JSON file. -->
     <table class="table">
