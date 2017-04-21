@@ -1,13 +1,11 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100);
 
 body {
+  background-color: #3e94ec;
   font-family: "Roboto", helvetica, arial, sans-serif;
   font-size: 16px;
   font-weight: 400;
   text-rendering: optimizeLegibility;
-  margin-bottom: 50px;
-  margin-right: 20px;
-  margin-left: 20px;
 }
 
 div.table-title {
@@ -19,7 +17,7 @@ div.table-title {
 }
 
 .table-title h3 {
-   /*color: #fafafa;*/
+   color: #fafafa;
    font-size: 30px;
    font-weight: 400;
    font-style:normal;
@@ -114,13 +112,12 @@ td {
   font-weight:300;
   font-size:18px;
   text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
-  border: 1px solid #C1C3D1;
-  /*border-left: 1px solid #C1C3D1;*/
+  border-right: 1px solid #C1C3D1;
 }
 
-/*td:last-child {*/
-/*  border-right: 0px;*/
-/*}*/
+td:last-child {
+  border-right: 0px;
+}
 
 th.text-left {
   text-align: left;

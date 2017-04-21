@@ -9,7 +9,9 @@
     <!-- Latest compiled and minified Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!-- Optional theme for Bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">-->
+    <link rel="stylesheet" type="text/css" href="./assets/css/tablecss.css">
+
     <!-- Latest compiled and minified Bootstrap JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </head>
@@ -35,11 +37,11 @@
     <h1 align="center">Visualizations</h1>
     <div class="container-fluid">
         <div class="row">
+            <!-- Actual Pie Chart -->
             <div class="col-md-6" style="border: 1px solid lightgrey">
-                <!-- Pie Chart -->
                 <div id="container2">
                     <!-- Must have JS to make chart show up. -->
-                    <script src="charts/3dpie.js"></script>
+                    <script src="charts/3dpieActual.js"></script>
                 </div>
             </div>
             <!-- Bar Graph -->
@@ -61,19 +63,18 @@
                 </div>
             </div>
 
-            <!-- Extra Space -->
+            <!-- Available Pie Chart -->
             <div class="col-md-6" style="border: 1px solid lightgrey">
                 <div id="container4">
-                    <h4>Lorem Ipsum</h4>
-                    Lorem ipsum dolor sit amet, cu sonet tractatos eam, no mea nobis omnesque perpetua. In sanctus graecis detraxit qui, est te odio vidit. Vocent laboramus vis id, viris accommodare eu quo. Ex porro soleat dissentias cum, cu cum novum nemore graecis, pro
-                    ei debitis pertinax. Utinam consequuntur at vel. Vix ea erant tritani facilisis, ea stet feugiat legimus vix. Ne facilisi vituperatoribus sea.
+                    <script src="charts/3dpieAvailable.js"></script>
                 </div>
             </div>
         </div>
     </div>
     <br>
     <!-- creates a subtle line between the two sections on the page -->
-    <hr>
+    <hr style="border-color: black">
+    <br>
     <div class="table-title">
         <h3>Budget and Actuals: Technology Solutions Department</h3>
     </div>
@@ -95,7 +96,6 @@
             </tr>
         </thead>
     </table>
-    </div>
     <!-- This script loops through the authenticated TS JSON file and
     displays account number, description, revised budget, actual, encumbrance,
     and available information for the Technology Solutions Department. 
